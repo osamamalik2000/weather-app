@@ -1,13 +1,14 @@
-<div class="hero" data-bg-image="../assets/images/banner.png">
+<!-- Forecast form -->
+<!-- <div class="hero" data-bg-image="../assets/images/banner.png">
   <div class="container">
     <form action="#" class="find-location">
       <input type="text" placeholder="Find your location..." />
       <input type="submit" value="Find" />
     </form>
   </div>
-</div>
+</div> -->
 <!-- Forecast table start -->
-<div class="forecast-table" [ngClass]="{visible}">
+
   <div class="container">
     <div class="forecast-container"> 
       <div class="today forecast">
@@ -21,7 +22,7 @@
           <div class="degree">
             <div class="num">{{data.current.temp | number: '1.0-0'}}<sup>o</sup>C</div>
             <div class="forecast-icon">
-              <img src="../assets/images/icons/icon-1.svg" alt="" width="90" />
+              <img src='{{getImage(data.current.weather[0].main)}}' alt="" width="70" />
             </div>
           </div>
           <span
@@ -31,22 +32,21 @@
           <span>UV Index {{data.current.uvi | number: '1.0-0'}}</span>
         </div>
       </div>
-      <div class="forecast" *ngFor="let data of forecast; let i=index">
+      <div class="forecast" *ngFor="let d of forecast; let i=index">
         <div class="forecast-header">
           <div class="day">{{days[i+1]}}</div>
         </div>
         <!-- .forecast-header -->
         <div class="forecast-content">
           <div class="forecast-icon">
-            <img src="../assets/images/icons/icon-3.svg" alt="" width="48" />
+            <img src="{{getImage(data.daily[i].weather[0].main)}}" alt="" width="48" />
           </div>
-          <div class="degree">{{data.temp.day | number: '1.0-0'}}<sup>o</sup>C</div>
-          <small>{{(data.temp.min+data.temp.max)/2 | number: '1.0-0'}}<sup>o</sup></small>
+          <div class="degree">{{d.temp.day | number: '1.0-0'}}<sup>o</sup>C</div>
+          <small>{{(d.temp.min+d.temp.max)/2 | number: '1.0-0'}}<sup>o</sup></small>
         </div>
       </div>
     </div>
   </div>
-</div>
 <!-- Forecast table end -->
 <!-- <main class="main-content">
     <div class="fullwidth-block">

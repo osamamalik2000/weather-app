@@ -16,10 +16,7 @@ export class HomeComponent implements OnInit {
   // For hadeling response
   data: any;
   forecast: any[] = [];
-  // Hide and show data if location info is present
-  visible = {
-    'display': 'none'
-  };
+  private iconPath = "../../../assets/images/icons/";
   constructor(private ser: FetchServiceService) {}
   ngOnInit() {
     // this.getImage(5000);
@@ -85,15 +82,37 @@ export class HomeComponent implements OnInit {
     this.todayDate = `${this.date.getDate()} ${this.date.toLocaleString('default', {month: 'long',})}`;
   }
   // Selecting images accroding to weather
-  // getImage(img: any){
-  //   let n = img.toString();
-  //   console.log(n[0]);
-
-  //   switch(n){
-  //     case '2':{
-  //       return 
-  //     }
-
-  //   }
-  // }
+  getImage(imgCode: any){
+    let weatherCode = imgCode.toString();
+    switch(weatherCode){
+      case 'Thunderstorm':{
+        // Thunderstorm
+        return this.iconPath+'thunderstorm.svg';
+      }
+      case 'Drizzle':{
+        // Drizzle
+        return this.iconPath+'rain.svg';
+      }
+      case 'Rain':{
+        // Rain
+        return this.iconPath+'rainHeavy.svg';
+      }
+      case 'Snow':{
+        // Snow
+        return this.iconPath+'snow.svg';
+      }
+      case 'Clear':{
+        // Clear
+        return this.iconPath+'fullSun.svg';
+      }
+      case 'Clouds':{
+        // Clouds
+        return this.iconPath+'clouds.svg';
+      }
+      default:{
+        // Atmosphere
+        return this.iconPath+'cloud.svg';
+      }
+    }
+  }
 }

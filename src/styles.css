@@ -335,8 +335,7 @@ form input[type="reset"] {
 }
 
 .container {
-  margin-right: auto;
-  margin-left: auto;
+  margin: 4rem auto;
   padding-left: 15px;
   padding-right: 15px;
   *zoom: 1;
@@ -1723,7 +1722,6 @@ form input[type="reset"] {
   background: #323544;
   display: table;
   table-layout: fixed;
-  width: 100%;
   overflow: hidden;
   border-radius: 10px;
   margin-top: -150px;
