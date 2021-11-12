@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
             });
         },
         (err) => {
-          console.log('Can not get current weather: ' + err);
+          console.log(`Can not get user location: ${err} ${err.code}`);
         }
       );  
     }
